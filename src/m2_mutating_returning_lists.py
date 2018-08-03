@@ -87,7 +87,7 @@ def run_test_doubler():
     arg4 = [5, 1, 1]
     correct_arg3_after = [2, 4, 6, 8]
     correct_arg4_after = [5, 1, 1]
-    expected = [5, 2, 2]
+    expected = [10, 2, 2]
 
     print()
     print('BEFORE the function call:')
