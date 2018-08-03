@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  MUTATING  and  RETURNING-NEW  LISTS.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Hannah Levine..
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -37,7 +37,7 @@ def main():
 def run_test_doubler():
     """ Tests the    doubler    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  doubler  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -82,7 +82,27 @@ def run_test_doubler():
     # ------------------------------------------------------------------
     # TO DO 2 (continued): Add your ADDITIONAL test(s) here:
     # ------------------------------------------------------------------
+    # Test 2:
+    arg3 = [1, 2, 3, 4]
+    arg4 = [5, 1, 1]
+    correct_arg3_after = [2, 4, 6, 8]
+    correct_arg4_after = [5, 1, 1]
+    expected = [5, 2, 2]
 
+    print()
+    print('BEFORE the function call:')
+    print('  Argument 3 is:', arg3)
+    print('  Argument 4 is:', arg4)
+
+    answer = doubler(arg3, arg4)
+
+    print('AFTER the function call:')
+    print('  Argument 3 is:       ', arg3)
+    print('  Argument 3 should be:', correct_arg3_after)
+    print('  Argument 4 is:       ', arg4)
+    print('  Argument 4 should be:', correct_arg4_after)
+    print('The returned value is:       ', answer)
+    print('The returned value should be:', expected)
 
 def doubler(list1, list2):
     """
