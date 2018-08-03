@@ -118,11 +118,11 @@ def doubler(list1, list2):
     and RETURNs the list [10, 0, 16]
 
     Preconditions:
-        :type list1: list of int
-        :type list2: list of int
+        :type list1: list   of integers
+        :type list2: list   of integers
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -130,7 +130,12 @@ def doubler(list1, list2):
     #    DIFFICULTY:      4
     #    TIME ESTIMATE:   5 minutes.
     # ------------------------------------------------------------------
-
+    list3 = []
+    for k in range(len(list1)):
+        list1[k] *= 2
+    for k in list2:
+        list3 += [2 * k]
+    return list3
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
