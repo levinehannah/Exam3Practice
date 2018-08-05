@@ -75,8 +75,8 @@ def shape(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
-    #          Some tests are already written for you (above).
+    # DONE: 2. Implement and test this function.
+    #          Some tests are already written for you (above)
     #
     ####################################################################
     # IMPLEMENTATION RESTRICTION:
@@ -86,8 +86,21 @@ def shape(r):
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  15 minutes.
-    # ------------------------------------------------------------------
+    # ----------------------------------------------------------------
+    #
 
+    for listpoo in range(r):
+        List = ''
+        for k in range(listpoo):
+            List += (' ')
+        for j in range(r-listpoo):
+            List += ('+')
+        List += ('!')
+        for i in range(r-listpoo):
+            List += (str(r-i))
+        for l in range(listpoo):
+            List += ('-')
+        print(List)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
