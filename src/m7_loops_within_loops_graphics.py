@@ -90,7 +90,7 @@ def hourglass(window, n, point, radius, color):
     a color that rosegraphics understands.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -200,7 +200,7 @@ def many_hourglasses(window, square, m, colors):
     each of which denotes a color that rosegraphics understands.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #       We provided some tests for you (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -219,15 +219,29 @@ def many_hourglasses(window, square, m, colors):
 
     radius = square.length_of_each_side / 2
     rect = square.get_bounding_box()
+
+    rect.attach_to(window)
+    hourglass(window, 1, rect.get_center(), radius, colors[0])
+
     p1 = rect.get_lower_left_corner()
     p2 = rect.get_upper_right_corner()
-    for k in range(m):
-        p1.x += radius*2*((math.factorial(k+1)) + 1)
-        p2.x += radius*2*((math.factorial(k+1)) + 1) + radius*k*2
+
+    color_index = 0
+
+    for k in range(m-1):
+        color_index += 1
+        if color_index >= len(colors):
+            color_index = 0
+
+        p1.x = p2.x
+        p2.x += 2*(k+2)*radius
+
+        p1.y += math.sin(math.pi/3)*radius*2
+        p2.y -= math.sin(math.pi/3)*radius*2
+
         rect = rg.Rectangle(p1,p2)
         rect.attach_to(window)
-
-        hourglass(window, k+1, rect.get_center(), radius, colors[k])
+        hourglass(window, k + 2, rect.get_center(), radius, colors[color_index])
     window.render
 
 # ----------------------------------------------------------------------
