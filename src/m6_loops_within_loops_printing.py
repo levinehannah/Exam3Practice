@@ -97,7 +97,7 @@ def shape(r):
             List += ('+')
         List += ('!')
         for i in range(r-listpoo):
-            List += (str(r-i))
+            List += (str(r-i-listpoo))
         for l in range(listpoo):
             List += ('-')
         print(List)
