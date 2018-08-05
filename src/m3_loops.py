@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # DONEN: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -125,7 +125,7 @@ def run_test_practice_problem3():
     st.SimpleTestCase.run_tests('practice_problem3', tests)
 
     ####################################################################
-    # TO DO 2 continued:  More tests:
+    # DONE 2 continued:  More tests:
     #      YOU add at least **   2   ** additional tests here.
     #
     # You can use the   SimpleTestCase  class as above, or use
@@ -134,6 +134,23 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ####################################################################
+
+    # 15th test:
+    start_15 = 333
+    n_15 = 2
+    Threshold_15 = 0.001
+    big_list = []
+    for k in range(start_15, n_15):
+        big_list.append(k)
+
+
+    # 16th test:
+    start_16 = 666
+    n_16 = 50
+    Threshold_16 = 0.01
+    big_list = []
+    for k in range(start_16, n_16):
+        big_list.append(k)
 
 
 def practice_problem3(start, n, threshold):
@@ -208,7 +225,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -216,6 +233,14 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
+
+    list = []
+    index = start
+    while len(list) < n:
+        if (math.sin(index) + math.cos(index)) > threshold:
+            list.append(index)
+        index += 1
+    return list
 
 
 # ----------------------------------------------------------------------
