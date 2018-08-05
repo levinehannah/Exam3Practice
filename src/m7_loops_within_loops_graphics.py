@@ -29,11 +29,12 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 ########################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_hourglass()
+    #run_test_hourglass()
     run_test_many_hourglasses()
 
 
@@ -101,6 +102,42 @@ def hourglass(window, n, point, radius, color):
     #    DIFFICULTY:      8
     #    TIME ESTIMATE:  25 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
+
+    for k in range(n):
+        start_point = point.clone()
+        start_point.x -= math.cos(math.pi/3)*2*radius*(n - k - 1)
+        start_point.y += math.sin(math.pi/3)*2*radius*(n - k - 1)
+
+
+        Circle = rg.Circle(start_point, radius)
+        Circle.fill_color = color
+        Circle.attach_to(window)
+        for j in range(n-k):
+            Circle2 = Circle.clone()
+            Circle2.fill_color = color
+            Circle2.center.x += radius*2*(j)
+            Circle2.attach_to(window)
+            p1 = rg.Point(start_point.x - radius, start_point.y)
+            p2 = rg.Point(start_point.x + radius * (2*j + 1), start_point.y)
+        start_point = point.clone()
+        start_point.x -= math.cos(math.pi / 3) * 2 * radius * (n - k - 1)
+        start_point.y -= math.sin(math.pi / 3) * 2 * radius * (n - k - 1)
+        Circle = rg.Circle(start_point, radius)
+        Circle.fill_color = color
+        Circle.attach_to(window)
+        for j in range(n - k):
+            Circle2 = Circle.clone()
+            Circle2.fill_color = color
+            Circle2.center.x += radius * 2 * (j)
+            Circle2.attach_to(window)
+            p3 = rg.Point(start_point.x - radius, start_point.y)
+            p4 = rg.Point(start_point.x + radius * (2*j + 1), start_point.y)
+        rg.Line(p1, p2).attach_to(window)
+        rg.Line(p3, p4).attach_to(window)
+    window.render()
+
+
+    return
 
 
 def run_test_many_hourglasses():
@@ -180,6 +217,18 @@ def many_hourglasses(window, square, m, colors):
     #    TIME ESTIMATE:  20 minutes (warning: this problem is challenging)
     # ------------------------------------------------------------------
 
+    radius = square.length_of_each_side / 2
+    rect = square.get_bounding_box()
+    p1 = rect.get_lower_left_corner()
+    p2 = rect.get_upper_right_corner()
+    for k in range(m):
+        p1.x += radius*2*((math.factorial(k+1)) + 1)
+        p2.x += radius*2*((math.factorial(k+1)) + 1) + radius*k*2
+        rect = rg.Rectangle(p1,p2)
+        rect.attach_to(window)
+
+        hourglass(window, k+1, rect.get_center(), radius, colors[k])
+    window.render
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
